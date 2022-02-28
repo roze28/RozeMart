@@ -3,6 +3,8 @@ package com.rozemart.admin.user;
 import java.util.List;
 import java.util.NoSuchElementException;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -12,6 +14,7 @@ import com.rozemart.common.entity.Role;
 import com.rozemart.common.entity.User;
 
 @Service
+@Transactional
 public class UserService {
 
 	@Autowired
@@ -89,6 +92,10 @@ public class UserService {
 			throw new UserNotFoundException("Could not find any user with Id " + id);
 		}
 		userRepo.deleteById(id);
+	}
+	
+	public void updateUserEnabledStatus(Integer id,boolean enabled) {
+		userRepo.updateEnabledStatus(id, enabled);
 	}
 
 }

@@ -64,7 +64,7 @@ CREATE TABLE `user_roles` (
 
 LOCK TABLES `user_roles` WRITE;
 /*!40000 ALTER TABLE `user_roles` DISABLE KEYS */;
-INSERT INTO `user_roles` VALUES (6,1),(7,1),(8,1),(9,1),(5,2),(1,3),(3,3),(5,3),(1,4),(4,4),(5,4),(3,5),(4,5),(5,5);
+INSERT INTO `user_roles` VALUES (6,1),(7,1),(8,1),(5,2),(1,3),(3,3),(5,3),(9,3),(15,3),(1,4),(4,4),(5,4),(9,4),(3,5),(4,5),(5,5);
 /*!40000 ALTER TABLE `user_roles` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -85,7 +85,7 @@ CREATE TABLE `users` (
   `photos` varchar(64) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `UK_6dotkott2kjsp8vw4d0m25fb7` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -94,7 +94,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'roze2882@gmail.com',_binary '','Md. Firoze','Hossain','firoze28',NULL),(3,'firoze.hossain01@outlook.com',_binary '','Firoze','Ahmed','$2a$10$RPSXb/8FQttMrI9xf/MNPO0ohwRMUg3EyhFEiYzHCxAhC0yzjWAAW',NULL),(4,'firoze.hossain01@yahoo.com',_binary '','Firoze','Hossain','firoze28',NULL),(5,'imtiaze.ahmmed@gmail.com',_binary '\0','Md. Ahmed','Imtiaze Khorarrom','$2a$10$pYXLs.VeLpVR6aKiKZUwxODfLMdac10xYEgsa8gDJEJxJ6QKJb.qu',NULL),(6,'millat@gmail.com',_binary '','Ahsanul Haque','Millat','firoze28',NULL),(7,'rayhan@gmail.com',_binary '','Shykhul Islam','Rayhan','firoze28',NULL),(8,'mydul@gmail.com',_binary '','Mydul','Islam','$2a$10$jQr3TZJWn9pPYDABHvVQ6.IgmFI0J2o.qaLFpfuUfLBxW0J1M4KzO',NULL),(9,'ghh@gmail.com',_binary '','gh','dde','$2a$10$MV.gfPH90skojM8JSY6e7eliqHZh2vvnDLvBDIQ8ETPi2CHlSGvuC',NULL);
+INSERT INTO `users` VALUES (1,'roze2882@gmail.com',_binary '','Md. Firoze','Hossain','firoze28','millat.jpg'),(3,'firoze.hossain01@outlook.com',_binary '','Firoze','Ahmed','$2a$10$RPSXb/8FQttMrI9xf/MNPO0ohwRMUg3EyhFEiYzHCxAhC0yzjWAAW',NULL),(4,'firoze.hossain01@yahoo.com',_binary '','Firoze','Hossain','firoze28',NULL),(5,'imtiaze.ahmmed@gmail.com',_binary '','Md. Ahmed','Imtiaze Khorarrom','$2a$10$pYXLs.VeLpVR6aKiKZUwxODfLMdac10xYEgsa8gDJEJxJ6QKJb.qu','fff.jpg'),(6,'millat@gmail.com',_binary '','Ahsanul Haque','Millat','firoze28',NULL),(7,'rayhan@gmail.com',_binary '','Shykhul Islam','Rayhan','firoze28',NULL),(8,'mydul@gmail.com',_binary '','Mydul','Islam','$2a$10$jQr3TZJWn9pPYDABHvVQ6.IgmFI0J2o.qaLFpfuUfLBxW0J1M4KzO',NULL),(9,'ghh@gmail.com',_binary '','gh','dde','$2a$10$MV.gfPH90skojM8JSY6e7eliqHZh2vvnDLvBDIQ8ETPi2CHlSGvuC','millat.jpg'),(15,'rozen@gmail.com',_binary '','rozen','sujen','$2a$10$S/avWX/p4xx6HUDhm.H0fumbwwyqr8.3AoH01.wGXT.4462NlIjCi','millat.jpg');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -107,4 +107,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-02-28 20:17:13
+-- Dump completed on 2022-03-01 13:05:41

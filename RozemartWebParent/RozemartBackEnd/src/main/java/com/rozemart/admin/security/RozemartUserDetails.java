@@ -60,5 +60,9 @@ public class RozemartUserDetails implements UserDetails {
 	public boolean isEnabled() {
 		return user.isEnabled();
 	}
+	
+	public String getFullName() {
+		return this.user.getFirstName() + " " + this.user.getLastName();
+	}
 
 }

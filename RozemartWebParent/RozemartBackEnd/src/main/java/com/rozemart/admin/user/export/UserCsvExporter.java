@@ -1,4 +1,4 @@
-package com.rozemart.admin.user;
+package com.rozemart.admin.user.export;
 
 import java.io.IOException;
 import java.text.DateFormat;
@@ -12,6 +12,7 @@ import org.supercsv.io.CsvBeanWriter;
 import org.supercsv.io.ICsvBeanWriter;
 import org.supercsv.prefs.CsvPreference;
 
+import com.rozemart.admin.user.AbstractExporter;
 import com.rozemart.common.entity.User;
 
 public class UserCsvExporter extends AbstractExporter{

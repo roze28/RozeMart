@@ -15,7 +15,6 @@ import com.lowagie.text.Phrase;
 import com.lowagie.text.pdf.PdfPCell;
 import com.lowagie.text.pdf.PdfPTable;
 import com.lowagie.text.pdf.PdfWriter;
-import com.rozemart.admin.user.AbstractExporter;
 import com.rozemart.common.entity.User;
 
 public class UserPdfExporter extends AbstractExporter {

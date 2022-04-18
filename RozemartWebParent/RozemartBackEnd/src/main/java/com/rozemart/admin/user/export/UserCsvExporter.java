@@ -12,7 +12,6 @@ import org.supercsv.io.CsvBeanWriter;
 import org.supercsv.io.ICsvBeanWriter;
 import org.supercsv.prefs.CsvPreference;
 
-import com.rozemart.admin.user.AbstractExporter;
 import com.rozemart.common.entity.User;
 
 public class UserCsvExporter extends AbstractExporter{

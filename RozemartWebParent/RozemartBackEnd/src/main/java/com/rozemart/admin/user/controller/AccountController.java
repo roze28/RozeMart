@@ -1,4 +1,4 @@
-package com.rozemart.admin.user;
+package com.rozemart.admin.user.controller;
 
 import java.io.IOException;
 
@@ -15,6 +15,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.rozemart.admin.FileUploadUtil;
 import com.rozemart.admin.security.RozemartUserDetails;
+import com.rozemart.admin.user.UserService;
 import com.rozemart.common.entity.User;
 
 @Controller
@@ -28,7 +29,7 @@ public class AccountController {
 		String email = loggedUser.getUsername();
 		User user = service.getByEmail(email);
 		model.addAttribute("user", user);
-		return "account_form";
+		return "users/account_form";
 	}
 
 	@PostMapping("/account/update")

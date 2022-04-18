@@ -1,3 +1,3 @@
 # RozeMart
-For Testing in Mobile(Android and IPhone)
-http://192.168.1.108:8080/RozemartAdmin/
+For Testing Application in Mobile(Android and IPhone)
+http://{IP Address of your Local Computer}:{Port Number}/RozemartAdmin/

@@ -34,7 +34,7 @@ CREATE TABLE `categories` (
   UNIQUE KEY `UK_t8o6pivur7nn124jehx7cygw5` (`name`),
   KEY `FKsaok720gsu4u2wrgbk10b5n8d` (`parent_id`),
   CONSTRAINT `FKsaok720gsu4u2wrgbk10b5n8d` FOREIGN KEY (`parent_id`) REFERENCES `categories` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -43,7 +43,7 @@ CREATE TABLE `categories` (
 
 LOCK TABLES `categories` WRITE;
 /*!40000 ALTER TABLE `categories` DISABLE KEYS */;
-INSERT INTO `categories` VALUES (1,'Computers',_binary '\0','default.png','Computers',NULL),(2,'Electronics',_binary '\0','default.png','Electronics',NULL),(3,'Desktops',_binary '\0','default.png','Desktops',1),(4,'Laptops',_binary '\0','default.png','Laptops',1),(5,'Computer Components',_binary '\0','default.png','Computer Components',1),(6,'Cameras',_binary '\0','default.png','Cameras',2),(7,'Smartphones',_binary '\0','default.png','Smartphones',2),(8,'Memory',_binary '\0','default.png','Memory',5),(11,'Gaming Laptops',_binary '\0','default.png','Gaming Laptops',4),(12,'iPhone',_binary '\0','default.png','iPhone',7),(13,'books',_binary '','books.png','Books',NULL),(14,'lenses',_binary '','lenses.png','Lenses',6);
+INSERT INTO `categories` VALUES (1,'computers',_binary '','computers.png','Computers',NULL),(2,'electronics',_binary '','electronics.png','Electronics',NULL),(3,'Desktops',_binary '','desktop computers.png','Desktops',1),(4,'laptops',_binary '','laptop computers.png','Laptops',1),(5,'Computer Components',_binary '','computer components.png','Computer Components',1),(6,'Cameras',_binary '','digital cameras.png','Cameras',2),(7,'Smartphones',_binary '','unlocked cellphones.png','Smartphones',2),(8,'Memory',_binary '','computer memory.png','Memory',5),(11,'Gaming Laptops',_binary '','laptop computers.png','Gaming Laptops',4),(12,'iPhone',_binary '','carrier cellphones.png','iPhone',7),(13,'books',_binary '','books.png','Books',NULL),(14,'lenses',_binary '','lenses.png','Lenses',6),(15,'hard_drive',_binary '','internal hard drive.png','Internal Hard Drive',5);
 /*!40000 ALTER TABLE `categories` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -162,4 +162,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-04-20 12:27:09
+-- Dump completed on 2022-04-21 18:36:21

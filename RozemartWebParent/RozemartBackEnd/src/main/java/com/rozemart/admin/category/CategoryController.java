@@ -25,12 +25,12 @@ public class CategoryController {
 
 	@GetMapping("/categories")
 	public String listAll(@Param("sortDir") String sortDir, Model model) {
-		
-		if(sortDir == null || sortDir.isEmpty()) {
-			sortDir="asc";
+
+		if (sortDir == null || sortDir.isEmpty()) {
+			sortDir = "asc";
 		}
 		List<Category> listCategories = service.listAll(sortDir);
-		String reverseSortDir=sortDir.equals("asc") ? "desc" : "asc";
+		String reverseSortDir = sortDir.equals("asc") ? "desc" : "asc";
 		model.addAttribute("listCategories", listCategories);
 		model.addAttribute("reverseSortDir", reverseSortDir);
 		return "categories/categories";
@@ -46,45 +46,53 @@ public class CategoryController {
 	}
 
 	@PostMapping("/categories/save")
-	public String saveCategory(Category category, 
-			@RequestParam("fileImage") MultipartFile multipartFile,
+	public String saveCategory(Category category, @RequestParam("fileImage") MultipartFile multipartFile,
 			RedirectAttributes redirectAttributes) throws IOException {
-		
-		if(!multipartFile.isEmpty()) {
 
-		String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
-		category.setImage(fileName);
-		Category savedCategory = service.save(category);
-		String uploadDir="../category-images/" +savedCategory.getId();
-		
-		FileUploadUtil.cleanDir(uploadDir);
-		FileUploadUtil.saveFile(uploadDir, fileName, multipartFile);
-		}else {
+		if (!multipartFile.isEmpty()) {
+
+			String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
+			category.setImage(fileName);
+			Category savedCategory = service.save(category);
+			String uploadDir = "../category-images/" + savedCategory.getId();
+
+			FileUploadUtil.cleanDir(uploadDir);
+			FileUploadUtil.saveFile(uploadDir, fileName, multipartFile);
+		} else {
 			service.save(category);
 		}
-		
-		redirectAttributes.addFlashAttribute("message","The category has been saved successfully");
+
+		redirectAttributes.addFlashAttribute("message", "The category has been saved successfully");
 		return "redirect:/categories";
 
 	}
-	
+
 	@GetMapping("/categories/edit/{id}")
-	public String editCategory(@PathVariable(name = "id") Integer id, Model model,
-			RedirectAttributes ra) {
+	public String editCategory(@PathVariable(name = "id") Integer id, Model model, RedirectAttributes ra) {
 		try {
-			
-			Category category=service.get(id);
-			List<Category> listCategories=service.listCategoriesUsedInForm();
-			model.addAttribute("category",category);
-			model.addAttribute("listCategories",listCategories);
-			model.addAttribute("pageTitle","Edit Category (Id :" + id + ")");
+
+			Category category = service.get(id);
+			List<Category> listCategories = service.listCategoriesUsedInForm();
+			model.addAttribute("category", category);
+			model.addAttribute("listCategories", listCategories);
+			model.addAttribute("pageTitle", "Edit Category (Id :" + id + ")");
 			return "categories/category_form";
-			
+
 		} catch (CategoryNotFoundException ex) {
-			ra.addFlashAttribute("message",ex.getMessage());
+			ra.addFlashAttribute("message", ex.getMessage());
 			return "redirect:/categories";
 		}
-		
+
+	}
+
+	@GetMapping("/categories/{id}/enabled/{status}")
+	public String updateCategoryEnabledStatus(@PathVariable("id") Integer id, @PathVariable("status") boolean enabled,
+			RedirectAttributes redirectAttributes) {
+		service.updateCategoryEnabledStatus(id, enabled);
+		String status=enabled ? "enabled" : "disabled";
+		String message="The Category Id " + id + " has been " + status;
+		redirectAttributes.addFlashAttribute("message",message);
+		return "redirect:/categories";
 	}
 
 }

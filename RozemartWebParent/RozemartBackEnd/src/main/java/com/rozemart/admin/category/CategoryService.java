@@ -8,6 +8,8 @@ import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
@@ -15,6 +17,7 @@ import org.springframework.stereotype.Service;
 import com.rozemart.common.entity.Category;
 
 @Service
+@Transactional
 public class CategoryService {
 
 	@Autowired
@@ -175,6 +178,10 @@ public class CategoryService {
 		sortedChildren.addAll(children);
 		return sortedChildren;
 
+	}
+	
+	public void updateCategoryEnabledStatus(Integer id, boolean enabled) {
+		repo.updateEnabledStatus(id, enabled);
 	}
 
 }

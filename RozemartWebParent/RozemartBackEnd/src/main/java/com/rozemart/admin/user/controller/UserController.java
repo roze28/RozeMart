@@ -53,6 +53,7 @@ public class UserController {
 		if (endCount > page.getTotalElements()) {
 			endCount = page.getTotalElements();
 		}
+		
 		String reverseSortDir = sortDir.equals("asc") ? "desc" : "asc";
 		model.addAttribute("currentPage", pageNum);
 

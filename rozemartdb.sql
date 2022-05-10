@@ -2,7 +2,7 @@
 --
 -- Host: localhost    Database: rozemartdb
 -- ------------------------------------------------------
--- Server version	8.0.28-0ubuntu0.20.04.3
+-- Server version	8.0.29-0ubuntu0.22.04.2
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -24,17 +24,17 @@ DROP TABLE IF EXISTS `categories`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `categories` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `alias` varchar(64) NOT NULL,
-  `enabled` bit(1) NOT NULL,
-  `image` varchar(128) NOT NULL,
   `name` varchar(128) NOT NULL,
+  `alias` varchar(64) NOT NULL,
+  `image` varchar(128) NOT NULL,
+  `enabled` bit(1) NOT NULL,
   `parent_id` int DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `UK_jx1ptm0r46dop8v0o7nmgfbeq` (`alias`),
   UNIQUE KEY `UK_t8o6pivur7nn124jehx7cygw5` (`name`),
   KEY `FKsaok720gsu4u2wrgbk10b5n8d` (`parent_id`),
   CONSTRAINT `FKsaok720gsu4u2wrgbk10b5n8d` FOREIGN KEY (`parent_id`) REFERENCES `categories` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -43,7 +43,7 @@ CREATE TABLE `categories` (
 
 LOCK TABLES `categories` WRITE;
 /*!40000 ALTER TABLE `categories` DISABLE KEYS */;
-INSERT INTO `categories` VALUES (1,'computers',_binary '','computers.png','Computers',NULL),(2,'electronics',_binary '','electronics.png','Electronics',NULL),(3,'Desktops',_binary '','desktop computers.png','Desktops',1),(4,'laptops',_binary '','laptop computers.png','Laptops',1),(5,'Computer Components',_binary '','computer components.png','Computer Components',1),(6,'Cameras',_binary '','digital cameras.png','Cameras',2),(7,'Smartphones',_binary '','unlocked cellphones.png','Smartphones',2),(8,'Memory',_binary '','computer memory.png','Memory',5),(11,'Gaming Laptops',_binary '','laptop computers.png','Gaming Laptops',4),(12,'iPhone',_binary '','carrier cellphones.png','iPhone',7),(13,'books',_binary '','books.png','Books',NULL),(14,'lenses',_binary '','lenses.png','Lenses',6),(15,'hard_drive',_binary '','internal hard drive.png','Internal Hard Drive',5);
+INSERT INTO `categories` VALUES (1,'Electronics','electronics','electronics.png',_binary '',NULL),(2,'Camera & Photo','camera','camera.jpg',_binary '',1),(3,'Computers','computers','computers.png',_binary '',NULL),(4,'Cell Phones & Accessories','cellphones','cellphones.png',_binary '',1),(5,'Desktops','desktop_computers','desktop computers.png',_binary '',3),(6,'Laptops','laptop_computers','laptop computers.png',_binary '',3),(7,'Tablets','tablet_computers','tablets.png',_binary '',3),(8,'Computer Components','computer_components','computer components.png',_binary '',3),(9,'Bags & Cases','camera_bags_cases','bags_cases.png',_binary '',2),(10,'Digital Cameras','digital_cameras','digital cameras.png',_binary '',2),(11,'Flashes','camera_flashes','flashes.png',_binary '',2),(12,'Lenses','camera_lenses','lenses.png',_binary '',2),(13,'Tripods & Monopods','camera_tripods_monopods','tripods_monopods.png',_binary '',2),(14,'Carrier Cell Phones','carrier_cellphones','carrier cellphones.png',_binary '',4),(15,'Unlocked Cell Phones','unlocked_cellphones','unlocked cellphones.png',_binary '',4),(16,'Accessories','cellphone_accessories','cellphone accessories.png',_binary '',4),(17,'Cables & Adapters','cellphone_cables_adapters','cables and adapters.png',_binary '',16),(18,'MicroSD Cards','microsd_cards','microsd cards.png',_binary '',16),(19,'Stands','cellphone_stands','cellphone_stands.png',_binary '',16),(20,'Cases','cellphone_cases','cellphone cases.png',_binary '',16),(21,'Headphones','headphones','headphones.png',_binary '',16),(22,'CPU Processors Unit','computer_processors','computer processors.png',_binary '',8),(23,'Graphic Cards','computer_graphic_cards','graphic cards.png',_binary '',8),(24,'Internal Hard Drives','hard_drive','internal hard drive.png',_binary '',8),(25,'Internal Optical Drives','computer_optical_drives','internal optical drives.png',_binary '',8),(26,'Power Supplies','computer_power_supplies','power supplies.png',_binary '',8),(27,'Solid State Drives','solid_state_drives','solid state drives.png',_binary '',8),(28,'Sound Cards','computer_sound_cards','sound cards.png',_binary '',8),(29,'Memory','computer_memory','computer memory.png',_binary '',8),(30,'Motherboard','computer_motherboard','motherboards.png',_binary '',8),(31,'Network Cards','computer_network_cards','network cards.png',_binary '',8);
 /*!40000 ALTER TABLE `categories` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -162,4 +162,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-04-21 18:36:21
+-- Dump completed on 2022-05-10 23:40:50

@@ -1,7 +1,6 @@
-package com.rozemart.admin;
+package com.rozemart.admin.brand;
 
 import org.springframework.data.repository.PagingAndSortingRepository;
-
 
 import com.rozemart.common.entity.Brand;
 

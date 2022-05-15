@@ -11,7 +11,6 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.annotation.Rollback;
 
-import com.rozemart.admin.BrandRepository;
 import com.rozemart.common.entity.Brand;
 import com.rozemart.common.entity.Category;
 

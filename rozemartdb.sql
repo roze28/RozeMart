@@ -28,7 +28,7 @@ CREATE TABLE `brands` (
   `logo` varchar(128) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `UK_oce3937d2f4mpfqrycbr0l93m` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -37,7 +37,7 @@ CREATE TABLE `brands` (
 
 LOCK TABLES `brands` WRITE;
 /*!40000 ALTER TABLE `brands` DISABLE KEYS */;
-INSERT INTO `brands` VALUES (1,'Acer','Acer.png'),(4,'Canon','Canon.png');
+INSERT INTO `brands` VALUES (1,'Canon','Canon.png'),(2,'Fujifilm','Fujifilm.png'),(3,'Sony','Sony.png'),(4,'HP','HP.png'),(5,'SanDisk','SanDisk.png'),(6,'Western Digital','Western Digital.png'),(7,'Panasonic','Panasonic.png'),(8,'Pelican','Pelican.png'),(9,'Apple','Apple.png'),(10,'Samsung','Samsung.png'),(11,'Olympus','Olympus.png'),(12,'CADeN','Caden.png'),(13,'AmazonBasics','amazonbasics.png'),(14,'Nikon','Nikon.png'),(15,'Neewer','Neewer.png'),(16,'Sigma','Sigma.png'),(17,'Bosch','Bosch.png'),(18,'Joby','Joby.png'),(19,'GoPro','GoPro.png'),(20,'Manfrotto','Manfrotto.png'),(21,'Google','Google.png'),(22,'LG','LG.png'),(23,'Motorola','Motorola.png'),(24,'Pantech','Pantech.png'),(25,'Huawei','Huawei.png'),(26,'Xiaomi','Xiaomi.png'),(27,'HOVAMP','Hovamp.png'),(28,'Aioneus','Aioneus.png'),(29,'XIAE','XIAE.png'),(30,'Everyworth','Everyworth.png'),(31,'Lexar','Lexar.png'),(32,'Nulaxy','Nulaxy.png'),(33,'Fitfort','Fitfort.png'),(34,'PopSockets','PopSocket.png'),(35,'SHAWE','SHAWE.png'),(36,'Lenovo','Lenovo.png'),(37,'Acer','Acer.png'),(38,'Dell','Dell.png'),(39,'Intel','Intel.png'),(40,'ASUS','ASUS.png'),(41,'Microsoft','Microsoft.png'),(42,'DragonTouch','DragonTouch.png'),(43,'AMD','AMD.png'),(44,'XFX','XFX.png'),(45,'MSI','MSI.png'),(46,'Seagate','Seagate.png'),(47,'Cosair','Corsair.png'),(48,'Thermaltake','Thermaltake.png'),(49,'Kingston','Kingston.png'),(50,'Creative','Creative.png'),(51,'Crucial','Crucial.png'),(52,'HyperX','HyperX.png'),(53,'Gigabyte','Gigabyte.png'),(54,'TP-Link','TP-Link.png');
 /*!40000 ALTER TABLE `brands` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -64,7 +64,7 @@ CREATE TABLE `brands_categories` (
 
 LOCK TABLES `brands_categories` WRITE;
 /*!40000 ALTER TABLE `brands_categories` DISABLE KEYS */;
-INSERT INTO `brands_categories` VALUES (1,6),(4,10),(4,11),(4,12);
+INSERT INTO `brands_categories` VALUES (6,1),(1,2),(2,2),(3,2),(7,2),(8,2),(9,4),(4,5),(9,5),(10,5),(36,5),(37,5),(38,5),(39,5),(40,5),(4,6),(9,6),(10,6),(36,6),(37,6),(38,6),(40,6),(9,7),(10,7),(36,7),(37,7),(38,7),(40,7),(41,7),(42,7),(8,9),(12,9),(13,9),(1,10),(3,10),(7,10),(11,10),(14,10),(1,11),(3,11),(14,11),(15,11),(1,12),(14,12),(16,12),(17,13),(18,13),(19,13),(20,13),(9,14),(10,14),(21,14),(22,14),(23,14),(24,14),(9,15),(10,15),(21,15),(23,15),(25,15),(26,15),(27,17),(28,17),(29,17),(30,17),(5,18),(10,18),(31,18),(20,19),(32,19),(33,19),(34,19),(35,19),(39,22),(43,22),(43,23),(44,23),(45,23),(5,24),(6,24),(10,24),(46,24),(10,25),(22,25),(40,25),(40,26),(47,26),(48,26),(5,27),(6,27),(10,27),(49,27),(40,28),(50,28),(5,29),(6,29),(10,29),(47,29),(49,29),(51,29),(52,29),(40,30),(45,30),(53,30),(5,31),(54,31);
 /*!40000 ALTER TABLE `brands_categories` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -215,4 +215,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-05-16 18:16:29
+-- Dump completed on 2022-05-16 19:26:08

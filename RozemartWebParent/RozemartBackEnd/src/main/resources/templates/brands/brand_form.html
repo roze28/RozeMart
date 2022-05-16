@@ -16,6 +16,7 @@
 			
 		<form th:action="@{/brands/save}" method="post" style="max-width: 500px;
 		 margin: 0 auto;" th:object="${brand}"
+		 onsubmit="return checkUnique(this)"
 			 enctype="multipart/form-data">
 
 			<input type="hidden" th:field="*{id}" />
@@ -108,7 +109,30 @@
 		});
 		
 	}
+	function checkUnique(form){
+		brandId=$("#id").val();
+		brandName=$("#name").val();
 		
+		csrfValue = $("input[name='_csrf']").val();
+		url="[[@{/brands/check_unique}]]";
+		params={id : brandId, name : brandName, _csrf : csrfValue};
+		
+		$.post(url,params,function(response){
+			if(response == "Ok"){
+				form.submit();
+			}else if(response == "Duplicate"){
+				showWarningModal("There is another brand having same name " + brandName);
+				
+			}else{
+				showErrorModal("Unknown response from server");
+			}
+			
+		}).fail(function(){
+			showErrorModal("Could not connect to the server");
+		});
+		return false;
+		
+	}
 	</script>
 	
 	<script th:src="@{/js/common_form.js}"></script>

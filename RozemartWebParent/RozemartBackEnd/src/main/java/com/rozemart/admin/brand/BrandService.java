@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.rozemart.common.entity.Brand;
+import com.rozemart.common.entity.Category;
 
 @Service
 public class BrandService {
@@ -16,27 +17,44 @@ public class BrandService {
 	public List<Brand> listAll() {
 		return (List<Brand>) repo.findAll();
 	}
-	
+
 	public Brand save(Brand brand) {
 		return repo.save(brand);
-		
+
 	}
-	
-	public Brand get(Integer id) throws BrandNotFoundException{
+
+	public Brand get(Integer id) throws BrandNotFoundException {
 		try {
 			return repo.findById(id).get();
 		} catch (NoSuchElementException ex) {
-		throw new BrandNotFoundException("Could not find any brand with id: "+id);
+			throw new BrandNotFoundException("Could not find any brand with id: " + id);
 		}
 	}
-	
-	public void delete(Integer id) throws BrandNotFoundException{
-		Long countById=repo.countById(id);
-		
-		if(countById == null || countById == 0) {
-			throw new BrandNotFoundException("Could not find any brand with id: "+id);
+
+	public void delete(Integer id) throws BrandNotFoundException {
+		Long countById = repo.countById(id);
+
+		if (countById == null || countById == 0) {
+			throw new BrandNotFoundException("Could not find any brand with id: " + id);
 		}
 		repo.deleteById(id);
+	}
+
+	public String checkUnique(Integer id, String name) {
+		boolean isCreatingNew = (id == null || id == 0);
+		Brand brandByName = repo.findByName(name);
+
+		if (isCreatingNew) {
+			if (brandByName != null)
+				return "Duplicate";
+		} else {
+
+			if (brandByName != null && brandByName.getId() != id) {
+				return "Duplicate";
+			}
+		}
+		return "Ok";
+
 	}
 
 }

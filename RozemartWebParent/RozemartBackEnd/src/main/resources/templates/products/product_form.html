@@ -16,7 +16,9 @@
 		
 	    
 			
-		<form th:action="@{/products/save}" method="post" th:object="${product}" onsubmit="return checkUnique(this)">
+		<form th:action="@{/products/save}" method="post" th:object="${product}"
+		enctype="multipart/form-data"
+		 onsubmit="return checkUnique(this)">
 
 			<input type="hidden" th:field="*{id}" />
         <div>
@@ -49,7 +51,10 @@
 			  <div th:replace="products/product_description :: content"></div>
 			  
 			  </div>
-			  <div class="tab-pane" id="images" role="tabpanel" >Images</div>
+			  <div class="tab-pane" id="images" role="tabpanel">
+			  <div th:replace="products/product_images :: content"></div>
+			  
+			  </div>
 			  <div class="tab-pane" id="details" role="tabpanel">Details</div>
 			  
 			   <div class="tab-pane p-3" id="shipping" role="tabpanel">
@@ -73,6 +78,7 @@
 		
 	</div>
 	<script type="text/javascript">
+	MAX_FILE_SIZE=502400; //500kb
 	moduleURL="[[@{/products}]]";
 	brandModuleURL="[[@{/brands}]]";
 	

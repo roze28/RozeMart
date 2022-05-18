@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.rozemart.admin.FileUploadUtil;
 import com.rozemart.admin.brand.BrandService;
+import com.rozemart.admin.category.CategoryNotFoundException;
 import com.rozemart.common.entity.Brand;
 import com.rozemart.common.entity.Product;
 
@@ -57,4 +59,19 @@ public class ProductController {
 		return "redirect:/products";
 	}
 
+	@GetMapping("/products/delete/{id}")
+	public String deleteProduct(@PathVariable(name = "id") Integer id, Model model,
+			RedirectAttributes redirectAttributes) {
+		try {
+			productService.delete(id);
+			// String categoryDir = "../category-images/" + id;
+			// FileUploadUtil.removeDir(categoryDir);
+
+			redirectAttributes.addFlashAttribute("message", "The Product Id " + id + " has been deleted Successfully");
+		} catch (ProductNotFoundException ex) {
+			redirectAttributes.addFlashAttribute("message", ex.getMessage());
+
+		}
+		return "redirect:/products";
+	}
 }

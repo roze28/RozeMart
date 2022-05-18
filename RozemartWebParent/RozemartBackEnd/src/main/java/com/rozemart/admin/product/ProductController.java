@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.rozemart.admin.brand.BrandService;
 import com.rozemart.common.entity.Brand;
@@ -25,11 +26,11 @@ public class ProductController {
 		model.addAttribute("listProducts", listProducts);
 		return "products/products";
 	}
-	
+
 	@GetMapping("/products/new")
 	public String newProduct(Model model) {
 		List<Brand> listBrands = brandService.listAll();
-		Product product=new Product();
+		Product product = new Product();
 		product.setEnabled(true);
 		product.setInStock(true);
 		model.addAttribute("product", product);
@@ -37,11 +38,11 @@ public class ProductController {
 		model.addAttribute("pageTitle", "Create New Product");
 		return "products/product_form";
 	}
+
 	@PostMapping("/products/save")
-	public String saveProduct(Product product) {
-		System.out.println("Product Name: "+product);
-		System.out.println("Brand Id: "+product.getBrand().getId());
-		System.out.println("Category Id: "+product.getCategory().getId());
+	public String saveProduct(Product product, RedirectAttributes ra) {
+		productService.save(product);
+		ra.addFlashAttribute("message", "The product has been saved successfully");
 		return "redirect:/products";
 	}
 

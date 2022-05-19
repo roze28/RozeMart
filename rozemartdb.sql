@@ -114,7 +114,7 @@ CREATE TABLE `product_images` (
   PRIMARY KEY (`id`),
   KEY `FKqnq71xsohugpqwf3c9gxmsuy` (`product_id`),
   CONSTRAINT `FKqnq71xsohugpqwf3c9gxmsuy` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -123,7 +123,7 @@ CREATE TABLE `product_images` (
 
 LOCK TABLES `product_images` WRITE;
 /*!40000 ALTER TABLE `product_images` DISABLE KEYS */;
-INSERT INTO `product_images` VALUES (1,'extra image 1.png',1),(2,'extra-image3.png',1),(3,'extra_image_2.png',1);
+INSERT INTO `product_images` VALUES (1,'extra image 1.png',1),(2,'extra-image3.png',1),(3,'extra_image_2.png',1),(4,'ASUS TUF Gaming 2.png',6),(5,'ASUS TUF Gaming back.png',6),(6,'ASUS TUF Gaming top view.png',6);
 /*!40000 ALTER TABLE `product_images` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -161,7 +161,7 @@ CREATE TABLE `products` (
   KEY `FKog2rp4qthbtt2lfyhfo32lsw9` (`category_id`),
   CONSTRAINT `FKa3a4mpsfdf4d2y6r8ra3sc8mv` FOREIGN KEY (`brand_id`) REFERENCES `brands` (`id`),
   CONSTRAINT `FKog2rp4qthbtt2lfyhfo32lsw9` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -170,7 +170,7 @@ CREATE TABLE `products` (
 
 LOCK TABLES `products` WRITE;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
-INSERT INTO `products` VALUES (1,'Samsung Galaxy A31','samsung_galaxy_a31','A good samrtphone from samsung','This a very good smartphone from full description','main image.jpg','2022-05-17 23:57:12.819000','2022-05-17 23:57:12.819000',_binary '',_binary '\0',0,499,0,0,0,0,0,10,15),(2,'Dell Insprion 3000','dell_insprion_3000','short description for dell insprion 3000','full description for dell insprion 3000','','2022-05-18 00:03:12.473000','2022-05-18 00:03:12.473000',_binary '\0',_binary '',400,456,0,0,0,0,0,38,6),(5,'Contrary to popular','Contrary-to-popular','<div><span style=\"color: rgb(0, 0, 0); font-family: &quot;Open Sans&quot;, Arial, sans-serif; font-size: 14px; text-align: justify;\">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.</span><br></div>','<div><span style=\"color: rgb(0, 0, 0); font-family: &quot;Open Sans&quot;, Arial, sans-serif; font-size: 14px; text-align: justify;\">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.</span><br></div>','eclipse.png','2022-05-18 21:37:17.330000','2022-05-18 21:37:17.330000',_binary '',_binary '',500,700,0,0,0,0,0,38,5);
+INSERT INTO `products` VALUES (1,'Samsung Galaxy A31','samsung_galaxy_a31','A good samrtphone from samsung','This a very good smartphone from full description','main image.jpg','2022-05-17 23:57:12.819000','2022-05-17 23:57:12.819000',_binary '',_binary '\0',0,499,0,0,0,0,0,10,15),(2,'Dell Insprion 3000','dell_insprion_3000','short description for dell insprion 3000','full description for dell insprion 3000','','2022-05-18 00:03:12.473000','2022-05-18 00:03:12.473000',_binary '\0',_binary '',400,456,0,0,0,0,0,38,6),(6,'Asus Vivobook X515MA Celeron N4020 15.6\" HD Laptop','Asus-Vivobook-X515MA-Celeron-N4020-15.6\"-HD-Laptop','<div><span style=\"color: rgb(1, 19, 45); font-family: &quot;Trebuchet MS&quot;, sans-serif; font-size: 15px;\">The latest price of Asus Vivobook X515MA Celeron N4020 15.6\" Laptop in Bangladesh is 38,000৳. You can buy the Asus Vivobook X515MA Celeron N4020 15.6\" Laptop at best price from our website or visit any of our showrooms.</span><br></div>','<div><span style=\"color: rgb(1, 19, 45); font-family: &quot;Trebuchet MS&quot;, sans-serif; font-size: 15px; text-align: justify;\">The Asus Vivobook X515MA laptop comes with Intel Celeron Processor N4020 (4M Cache, 1.10 GHz up to 2.80 GHz) and 4GB DDR4 RAM. It has a 1TB SATA 5400RPM 2.5\" HDD and it also comes with 1x M.2 2280 PCIe 3.0x2 Slot. This laptop has been integrated with Intel UHD Graphics 600 and it has a 15.6-inch HD (1366 x 768) display with a 16:9 aspect ratio. It runs on Windows 11 Home operating system. This whole system is powered by a 37WHrs, 2S1P, 2-cell Li-ion battery and comes with a ø4.0, 33W AC Adapter, Output: 19V DC, 1.75A, 33W, Input: 100-240V AC 50/60Hz universal. This laptop has a VGA Webcam and Built-in speaker with SonicMaster. The Asus Vivobook X515MA offers Wi-Fi 5(802.11ac) and Bluetooth 4.1 (Dual band) 1*1 for wireless connectivity. The laptop is designed with 1x USB 3.0 Gen 1, 2x USB 2.0, 1 x HDMI ports. The Asus Vivobook X515MA Laptop comes with 2 years International Limited Warranty (Battery 1 year).</span><br></div>','ASUS TUF Gaming main.png','2022-05-20 02:32:23.388000','2022-05-20 02:32:23.388000',_binary '',_binary '',740,850,0,0,0,0,0,40,6);
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -289,4 +289,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-05-19 16:29:51
+-- Dump completed on 2022-05-20  2:35:32

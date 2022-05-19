@@ -101,6 +101,33 @@ INSERT INTO `categories` VALUES (1,'Electronics','electronics','electronics.png'
 UNLOCK TABLES;
 
 --
+-- Table structure for table `product_images`
+--
+
+DROP TABLE IF EXISTS `product_images`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `product_images` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  `product_id` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FKqnq71xsohugpqwf3c9gxmsuy` (`product_id`),
+  CONSTRAINT `FKqnq71xsohugpqwf3c9gxmsuy` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `product_images`
+--
+
+LOCK TABLES `product_images` WRITE;
+/*!40000 ALTER TABLE `product_images` DISABLE KEYS */;
+INSERT INTO `product_images` VALUES (1,'extra image 1.png',1),(2,'extra-image3.png',1),(3,'extra_image_2.png',1);
+/*!40000 ALTER TABLE `product_images` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `products`
 --
 
@@ -113,6 +140,7 @@ CREATE TABLE `products` (
   `alias` varchar(256) NOT NULL,
   `short_description` varchar(512) NOT NULL,
   `full_description` varchar(4096) NOT NULL,
+  `main_image` varchar(255) NOT NULL,
   `created_time` datetime(6) DEFAULT NULL,
   `updated_time` datetime(6) DEFAULT NULL,
   `enabled` bit(1) NOT NULL DEFAULT b'1',
@@ -124,8 +152,8 @@ CREATE TABLE `products` (
   `width` float NOT NULL DEFAULT '0',
   `height` float NOT NULL DEFAULT '0',
   `weight` float NOT NULL DEFAULT '0',
-  `category_id` int DEFAULT NULL,
   `brand_id` int DEFAULT NULL,
+  `category_id` int DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `UK_8qwq8q3hk7cxkp9gruxupnif5` (`alias`),
   UNIQUE KEY `UK_o61fmio5yukmmiqgnxf8pnavn` (`name`),
@@ -133,7 +161,7 @@ CREATE TABLE `products` (
   KEY `FKog2rp4qthbtt2lfyhfo32lsw9` (`category_id`),
   CONSTRAINT `FKa3a4mpsfdf4d2y6r8ra3sc8mv` FOREIGN KEY (`brand_id`) REFERENCES `brands` (`id`),
   CONSTRAINT `FKog2rp4qthbtt2lfyhfo32lsw9` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -142,6 +170,7 @@ CREATE TABLE `products` (
 
 LOCK TABLES `products` WRITE;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
+INSERT INTO `products` VALUES (1,'Samsung Galaxy A31','samsung_galaxy_a31','A good samrtphone from samsung','This a very good smartphone from full description','main image.jpg','2022-05-17 23:57:12.819000','2022-05-17 23:57:12.819000',_binary '',_binary '\0',0,499,0,0,0,0,0,10,15),(2,'Dell Insprion 3000','dell_insprion_3000','short description for dell insprion 3000','full description for dell insprion 3000','','2022-05-18 00:03:12.473000','2022-05-18 00:03:12.473000',_binary '\0',_binary '',400,456,0,0,0,0,0,38,6),(5,'Contrary to popular','Contrary-to-popular','<div><span style=\"color: rgb(0, 0, 0); font-family: &quot;Open Sans&quot;, Arial, sans-serif; font-size: 14px; text-align: justify;\">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.</span><br></div>','<div><span style=\"color: rgb(0, 0, 0); font-family: &quot;Open Sans&quot;, Arial, sans-serif; font-size: 14px; text-align: justify;\">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.</span><br></div>','eclipse.png','2022-05-18 21:37:17.330000','2022-05-18 21:37:17.330000',_binary '',_binary '',500,700,0,0,0,0,0,38,5);
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -260,4 +289,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-05-17 19:23:38
+-- Dump completed on 2022-05-19 16:29:51

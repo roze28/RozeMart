@@ -101,6 +101,34 @@ INSERT INTO `categories` VALUES (1,'Electronics','electronics','electronics.png'
 UNLOCK TABLES;
 
 --
+-- Table structure for table `product_details`
+--
+
+DROP TABLE IF EXISTS `product_details`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `product_details` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `value` varchar(255) NOT NULL,
+  `product_id` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FKnfvvq3meg4ha3u1bju9k4is3r` (`product_id`),
+  CONSTRAINT `FKnfvvq3meg4ha3u1bju9k4is3r` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `product_details`
+--
+
+LOCK TABLES `product_details` WRITE;
+/*!40000 ALTER TABLE `product_details` DISABLE KEYS */;
+INSERT INTO `product_details` VALUES (1,'Device Memory','128 GB',1),(2,'CPU Model','MediaTek',1),(3,'OS','Android 10',1);
+/*!40000 ALTER TABLE `product_details` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `product_images`
 --
 
@@ -289,4 +317,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-05-20  2:35:32
+-- Dump completed on 2022-05-21  0:49:05

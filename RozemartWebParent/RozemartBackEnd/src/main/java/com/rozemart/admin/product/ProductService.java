@@ -2,6 +2,7 @@ package com.rozemart.admin.product;
 
 import java.util.Date;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 import javax.transaction.Transactional;
 
@@ -66,6 +67,15 @@ public class ProductService {
 			throw new ProductNotFoundException("Could not find any Product with id  " + id);
 		}
 		repo.deleteById(id);
+	}
+	
+	public Product get(Integer id) throws ProductNotFoundException {
+		try {
+			return repo.findById(id).get();
+		} catch (NoSuchElementException ex) {
+			throw new ProductNotFoundException("Could not find any product with id: "+id);
+		}
+		
 	}
 
 }
